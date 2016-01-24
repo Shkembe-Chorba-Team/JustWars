@@ -38,36 +38,26 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-inverse">
             <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">JustWars</a>
-                </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                    </ul>
-                    <asp:LoginView runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
-                            </ul>
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                        <li><a runat="server" href="~/"><span class="glyphicon glyphicon-home nav-icon"></span>Home</a></li>
+                        <li><a runat="server" href="~/Hero"><span class="glyphicon glyphicon-user nav-icon"></span>Hero</a></li>
+                        <li><a runat="server" href="~/Battle"><span class="glyphicon glyphicon-tint nav-icon"></span>Battle</a></li>
+                        <asp:LoginView runat="server" ViewStateMode="Disabled">
+                            <AnonymousTemplate>
+                                <li><a runat="server" href="~/Account/Register"><span class="glyphicon glyphicon-edit nav-icon"></span>Register</a></li>
+                                <li><a runat="server" href="~/Account/Login"><span class="glyphicon glyphicon-log-in nav-icon"></span>Log in</a></li>
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                                <li><a runat="server" href="~/Account/Manage" title="Manage your account"><span class="glyphicon glyphicon-wrench nav-icon"></span>Manage</a></li>
                                 <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="<span class='glyphicon glyphicon-log-out nav-icon'></span>Logout" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                                 </li>
-                            </ul>
-                        </LoggedInTemplate>
-                    </asp:LoginView>
+                            </LoggedInTemplate>
+                        </asp:LoginView>
+                    </ul>
                 </div>
             </div>
         </div>
