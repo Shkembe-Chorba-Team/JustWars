@@ -14,6 +14,21 @@ namespace JustWars.Web.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (IsPostBack)
+            {
+                if (!(String.IsNullOrEmpty(Password.Text.Trim())))
+                {
+                    Password.Attributes["value"] = Password.Text;
+                    //or txtPwd.Attributes.Add("value",txtPwd.Text);
+                }
+                if (!(String.IsNullOrEmpty(ConfirmPassword.Text.Trim())))
+                {
+                    ConfirmPassword.Attributes["value"] = ConfirmPassword.Text;
+                    //or txtConfirmPwd.Attributes.Add("value", txtConfirmPwd.Text);
+                }
+                return;
+            }
+
             var itemValues = Enum.GetValues(typeof(Color));
 
             foreach (var value in itemValues)
@@ -21,6 +36,17 @@ namespace JustWars.Web.Account
                 var name = Enum.GetName(typeof(Color), value);
                 TeamColor.Items.Add(new ListItem(name, value.ToString()));
             }
+        }
+
+        protected void LoadImage(object sender, EventArgs e)
+        {
+            Color choice;
+            if (!Enum.TryParse<Color>(TeamColor.SelectedValue, out choice))
+            {
+                return;
+            }
+
+            BannerPreview.ImageUrl = GetImagePath(choice);
         }
 
         protected void CreateUser_Click(object sender, EventArgs e)
@@ -51,6 +77,11 @@ namespace JustWars.Web.Account
             {
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
             }
+        }
+
+        private string GetImagePath(Color color)
+        {
+            return @"/Content/imgs/" + color.ToString() + "Ninja.png";
         }
     }
 }
