@@ -11,6 +11,13 @@
         <hr />
         <asp:ValidationSummary runat="server" CssClass="text-danger" />
         <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="Username" CssClass="col-md-2 control-label">Username</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="Username" CssClass="form-control" />
+                <asp:RegularExpressionValidator ControlToValidate="Username" runat="server" ValidationExpression="^[\s\S]{6,20}$" Text="The username should be betwen 6 and 20 symbols." />
+            </div>
+        </div>
+        <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
@@ -34,6 +41,13 @@
                     CssClass="text-danger" Display="Dynamic" ErrorMessage="The confirm password field is required." />
                 <asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
                     CssClass="text-danger" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
+            </div>
+        </div>
+        <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="TeamColor" CssClass="col-md-2 control-label">Choose Color</asp:Label>
+            <div class="col-md-10">
+                <asp:DropDownList runat="server" ID="TeamColor" CssClass="form-control">
+                </asp:DropDownList>
             </div>
         </div>
         <div class="form-group">

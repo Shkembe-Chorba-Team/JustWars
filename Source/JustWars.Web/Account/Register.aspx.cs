@@ -6,16 +6,36 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using JustWars.Web.Models;
+using System.Web.UI.WebControls;
 
 namespace JustWars.Web.Account
 {
     public partial class Register : Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            var itemValues = Enum.GetValues(typeof(Color));
+
+            foreach (var value in itemValues)
+            {
+                var name = Enum.GetName(typeof(Color), value);
+                TeamColor.Items.Add(new ListItem(name, value.ToString()));
+            }
+        }
+
         protected void CreateUser_Click(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
-            var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text };
+
+            Color color = Color.Green;
+            Color choice;
+            if (Enum.TryParse<Color>(TeamColor.SelectedValue, out choice))
+            {
+                color = (Color)choice;
+            }
+
+            var user = new ApplicationUser() { UserName = Username.Text, Email = Email.Text, Color = color };
             IdentityResult result = manager.Create(user, Password.Text);
             if (result.Succeeded)
             {

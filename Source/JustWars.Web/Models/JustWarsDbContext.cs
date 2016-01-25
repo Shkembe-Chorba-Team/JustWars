@@ -7,37 +7,27 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using JustWars.Web.Models;
+using System.Data.Entity;
+using JustWars.Web.Migrations;
 
 namespace JustWars.Web.Models
 {
-    // You can add User data for the user by adding more properties to your User class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
-    public class ApplicationUser : IdentityUser
+    public class JustWarsDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ClaimsIdentity GenerateUserIdentity(ApplicationUserManager manager)
-        {
-            // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
-            var userIdentity = manager.CreateIdentity(this, DefaultAuthenticationTypes.ApplicationCookie);
-            // Add custom user claims here
-            return userIdentity;
-        }
-
-        public Task<ClaimsIdentity> GenerateUserIdentityAsync(ApplicationUserManager manager)
-        {
-            return Task.FromResult(GenerateUserIdentity(manager));
-        }
-    }
-
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-    {
-        public ApplicationDbContext()
+        public JustWarsDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<JustWarsDbContext, Configuration>());
         }
 
-        public static ApplicationDbContext Create()
+        public static JustWarsDbContext Create()
         {
-            return new ApplicationDbContext();
+            return new JustWarsDbContext();
         }
+
+        public IDbSet<Item> Items { get; set; }
+
+        public IDbSet<Battle> Battles { get; set; }
     }
 }
 
