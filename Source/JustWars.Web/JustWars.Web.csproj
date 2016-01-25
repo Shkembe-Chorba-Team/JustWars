@@ -345,6 +345,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601251724541_InitialMigrations.cs" />
+    <Compile Include="Migrations\201601251724541_InitialMigrations.Designer.cs">
+      <DependentUpon>201601251724541_InitialMigrations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedDb.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -380,6 +384,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201601251724541_InitialMigrations.resx">
+      <DependentUpon>201601251724541_InitialMigrations.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
