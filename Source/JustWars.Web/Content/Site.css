@@ -69,6 +69,15 @@ input[type="select"] {
 }
 
 @media screen and (max-width: 768px) {
+    body {
+        margin-left: 80px;
+    }
+
+    .body-content {
+        padding-left: 10px;
+        padding-right: 5px;
+    }
+
     .navbar {
         width: 80px;
         font-size: 12px;
