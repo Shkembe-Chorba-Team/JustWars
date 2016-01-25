@@ -9,6 +9,7 @@ body {
     padding-right: 15px;
 }
 
+
 .navbar {
     border-radius: 0px;
     position: absolute;
@@ -88,4 +89,21 @@ input[type="select"] {
         font-size: 20px;
         margin: 5px;
     }
+}
+
+
+.centered {
+    text-align: center;
+}
+
+.white-text {
+    color: white;
+}
+
+.panel-body .table tr th, .panel-body .table tr td, .panel-body .table tr td * {
+    vertical-align: middle;
+}
+
+.panel-info > .panel-heading {
+    background-color: #858b8b;
 }
