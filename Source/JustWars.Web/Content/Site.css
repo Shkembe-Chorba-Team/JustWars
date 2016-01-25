@@ -1,12 +1,44 @@
 ﻿/* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 body {
-    margin-left: 130px;
+    margin-left: 110px;
 }
 
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+}
+
+.navbar {
+    border-radius: 0px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100px;
+    text-align: center;
+}
+
+    .navbar .container {
+        padding: 0;
+    }
+
+.navbar-nav {
+    margin: 10px auto;
+}
+
+.navbar ul {
+    width: 100%;
+}
+
+.navbar li {
+    width: 100%;
+}
+
+.nav-icon {
+    display: block;
+    font-size: 30px;
+    margin: 10px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -36,34 +68,15 @@ input[type="select"] {
     }
 }
 
-.navbar {
-    border-radius: 0px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 110px;
-    text-align: center;
-}
-
-    .navbar .container {
-        padding: 0;
+@media screen and (max-width: 768px) {
+    .navbar {
+        width: 80px;
+        font-size: 12px;
     }
 
-.navbar-collapse {
-    width: 100%;
-}
-
-.navbar ul {
-    width: 100%;
-}
-
-.navbar li {
-    width: 100%;
-}
-
-.nav-icon {
-    display: block;
-    font-size: 30px;
-    margin: 10px;
+    .nav-icon {
+        display: block;
+        font-size: 20px;
+        margin: 5px;
+    }
 }

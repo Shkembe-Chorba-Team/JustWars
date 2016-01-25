@@ -40,7 +40,7 @@
 
         <div class="navbar navbar-inverse">
             <div class="container">
-                <div class="navbar-collapse collapse">
+                <div class="navbar">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/"><span class="glyphicon glyphicon-home nav-icon"></span>Home</a></li>
                         <li><a runat="server" href="~/Hero"><span class="glyphicon glyphicon-user nav-icon"></span>Hero</a></li>
