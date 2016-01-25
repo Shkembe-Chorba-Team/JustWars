@@ -1,13 +1,10 @@
-﻿using JustWars.Web.Models;
-using Microsoft.AspNet.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace JustWars.Web.Migrations
+﻿namespace JustWars.Web.Migrations
 {
+    using JustWars.Web.Models;
+    using Microsoft.AspNet.Identity;
+    using System;
+    using System.Collections.Generic;
+
     public class SeedData
     {
         public static Random Rand = new Random();
@@ -22,7 +19,7 @@ namespace JustWars.Web.Migrations
         {
             this.Users = new List<ApplicationUser>();
             var passwordHash = new PasswordHasher();
-            Users.Add(new ApplicationUser() { UserName = "dtraykov", Email = "dtraykov@telerik.com", PasswordHash = passwordHash.HashPassword("Ju$tpa$$1"), Color = Color.Green, SecurityStamp =  Guid.NewGuid().ToString() });
+            Users.Add(new ApplicationUser() { UserName = "dtraykov", Email = "dtraykov@telerik.com", PasswordHash = passwordHash.HashPassword("Ju$tpa$$1"), Color = Color.Green, SecurityStamp = Guid.NewGuid().ToString() });
             Users.Add(new ApplicationUser() { UserName = "mr.krustev", Email = "mr.krustev@telerik.com", PasswordHash = passwordHash.HashPassword("Ju$tpa$$1"), Color = Color.Blue, SecurityStamp = Guid.NewGuid().ToString() });
             Users.Add(new ApplicationUser() { UserName = "emilnik", Email = "emilnik@telerik.com", PasswordHash = passwordHash.HashPassword("Ju$tpa$$1"), Color = Color.Red, SecurityStamp = Guid.NewGuid().ToString() });
 

@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Security.Claims;
-using System.Threading.Tasks;
 using System.Web;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using JustWars.Web.Models;
 using System.Data.Entity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using JustWars.Web.Migrations;
 
 namespace JustWars.Web.Models

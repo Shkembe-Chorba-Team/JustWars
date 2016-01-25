@@ -1,13 +1,11 @@
-﻿using System;
-using System.Web;
-using System.Web.UI;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Owin;
-using JustWars.Web.Models;
-
-namespace JustWars.Web.Account
+﻿namespace JustWars.Web.Account
 {
+    using System;
+    using System.Web;
+    using System.Web.UI;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.Owin;
+
     public partial class Confirm : Page
     {
         protected string StatusMessage

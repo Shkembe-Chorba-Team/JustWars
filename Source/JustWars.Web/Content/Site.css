@@ -1,5 +1,9 @@
 ﻿/* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
+body {
+    margin-left: 130px;
+}
+
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
@@ -26,6 +30,7 @@ input[type="select"] {
     .jumbotron {
         margin-top: 20px;
     }
+
     .body-content {
         padding: 0;
     }
@@ -37,13 +42,13 @@ input[type="select"] {
     left: 0;
     top: 0;
     height: 100%;
-    width: 150px;
+    width: 110px;
     text-align: center;
 }
 
-.navbar .container {
-    padding: 0;
-}
+    .navbar .container {
+        padding: 0;
+    }
 
 .navbar-collapse {
     width: 100%;
@@ -59,6 +64,6 @@ input[type="select"] {
 
 .nav-icon {
     display: block;
-    font-size: 40px;
+    font-size: 30px;
     margin: 10px;
 }
