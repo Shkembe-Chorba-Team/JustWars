@@ -1,8 +1,8 @@
 ﻿namespace JustWars.Tests
 {
-    using Web.Models;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Web.Controllers;
+    using Web.Models;
 
     [TestClass]
     public class BattleLogicTests
@@ -87,9 +87,9 @@
                 SecondPlayer = weakUser
             };
 
-            var winner = BattleController.GetWinner(battle);
+            var baattleReturn = BattleController.PlayBattle(battle);
 
-            Assert.AreEqual(strongUser, winner);
+            Assert.AreEqual(strongUser, baattleReturn.Winner);
         }
     }
 }

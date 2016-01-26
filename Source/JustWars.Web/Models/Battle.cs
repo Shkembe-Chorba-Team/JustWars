@@ -13,5 +13,7 @@
         public User SecondPlayer { get; set; }
 
         public BattleStatus Status { get; set; }
+
+        public int NumberOfRounds { get; set; }
     }
 }

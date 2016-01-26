@@ -6,17 +6,11 @@
 
     public class GoldController
     {
-        public static void AddGold(User user, int wins)
-        {
-            var gold = CalculateGoldToAdd(wins);
-            // TODO: add gold to user
-        }
-
-        private static uint CalculateGoldToAdd(int wins)
+        public static int CalculateGoldToAdd(User user, int wins)
         {
             int modifier = RandomGenerator.GenerateRandomNumber(GoldConstants.MinGold, GoldConstants.MaxGold);
             int gold = modifier / wins;
-            return (uint)gold;
+            return gold;
         }
 
         public static int CalculateNextStatLevelPrice(User user)

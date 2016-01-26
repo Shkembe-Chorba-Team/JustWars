@@ -381,6 +381,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedDb.cs" />
     <Compile Include="Models\Battle.cs" />
+    <Compile Include="Models\BattleModels\BattleReturnModel.cs" />
     <Compile Include="Models\BattleStatus.cs" />
     <Compile Include="Models\Color.cs" />
     <Compile Include="Models\Item.cs" />
