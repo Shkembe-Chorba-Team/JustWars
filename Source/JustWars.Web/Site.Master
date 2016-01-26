@@ -11,7 +11,7 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -43,14 +43,14 @@
                 <div class="navbar">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/"><span class="glyphicon glyphicon-home nav-icon"></span>Home</a></li>
-                        <li><a runat="server" href="~/Hero"><span class="glyphicon glyphicon-user nav-icon"></span>Hero</a></li>
-                        <li><a runat="server" href="~/Battle"><span class="glyphicon glyphicon-tint nav-icon"></span>Battle</a></li>
                         <asp:LoginView runat="server" ViewStateMode="Disabled">
                             <AnonymousTemplate>
                                 <li><a runat="server" href="~/Account/Register"><span class="glyphicon glyphicon-edit nav-icon"></span>Register</a></li>
                                 <li><a runat="server" href="~/Account/Login"><span class="glyphicon glyphicon-log-in nav-icon"></span>Log in</a></li>
                             </AnonymousTemplate>
                             <LoggedInTemplate>
+                                <li><a runat="server" href="~/Hero"><span class="glyphicon glyphicon-user nav-icon"></span>Hero</a></li>
+                                <li><a runat="server" href="~/Battle"><span class="glyphicon glyphicon-tint nav-icon"></span>Battle</a></li>
                                 <li><a runat="server" href="~/Account/Manage" title="Manage your account"><span class="glyphicon glyphicon-wrench nav-icon"></span>Manage</a></li>
                                 <li>
                                     <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="<span class='glyphicon glyphicon-log-out nav-icon'></span>Logout" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />

@@ -7,72 +7,72 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JustWars.Web.Account {
+namespace JustWars.Web {
     
     
-    public partial class Manage {
+    public partial class Hero {
         
         /// <summary>
-        /// successMessage control.
+        /// UserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder successMessage;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl UserName;
         
         /// <summary>
-        /// errorMessage control.
+        /// Strength control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder errorMessage;
+        protected global::System.Web.UI.WebControls.Label Strength;
         
         /// <summary>
-        /// UserEmail control.
+        /// Defence control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UserEmail;
+        protected global::System.Web.UI.WebControls.Label Defence;
         
         /// <summary>
-        /// UserFirstName control.
+        /// Agility control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UserFirstName;
+        protected global::System.Web.UI.WebControls.Label Agility;
         
         /// <summary>
-        /// UserLastName control.
+        /// Stamina control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UserLastName;
+        protected global::System.Web.UI.WebControls.Label Stamina;
         
         /// <summary>
-        /// SaveChanges control.
+        /// Charisma control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SaveChanges;
+        protected global::System.Web.UI.WebControls.Label Charisma;
         
         /// <summary>
-        /// ChangePassword control.
+        /// Gold control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink ChangePassword;
+        protected global::System.Web.UI.WebControls.Label Gold;
     }
 }
