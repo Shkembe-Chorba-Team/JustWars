@@ -183,7 +183,18 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
     <Content Include="Battle.aspx" />
+    <Content Include="fonts\Manatee\jandamanateesolid-webfont.eot" />
+    <Content Include="fonts\Manatee\jandamanateesolid-webfont.ttf" />
+    <Content Include="fonts\Manatee\jandamanateesolid-webfont.woff" />
+    <Content Include="fonts\Manatee\jandamanateesolid-webfont.woff2" />
+    <Content Include="fonts\Obelix\obelixpro-cyr-webfont.eot" />
+    <Content Include="fonts\Obelix\obelixpro-cyr-webfont.ttf" />
+    <Content Include="fonts\Obelix\obelixpro-cyr-webfont.woff" />
+    <Content Include="fonts\Obelix\obelixpro-cyr-webfont.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="fonts\Manatee\jandamanateesolid-webfont.svg" />
+    <Content Include="fonts\Obelix\obelixpro-cyr-webfont.svg" />
+    <Content Include="Hero.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -356,9 +367,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201601251724541_InitialMigrations.cs" />
-    <Compile Include="Migrations\201601251724541_InitialMigrations.Designer.cs">
-      <DependentUpon>201601251724541_InitialMigrations.cs</DependentUpon>
+    <Compile Include="Hero.aspx.cs">
+      <DependentUpon>Hero.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hero.aspx.designer.cs">
+      <DependentUpon>Hero.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601260100144_InitialCreate.cs" />
+    <Compile Include="Migrations\201601260100144_InitialCreate.Designer.cs">
+      <DependentUpon>201601260100144_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedDb.cs" />
@@ -404,8 +422,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201601251724541_InitialMigrations.resx">
-      <DependentUpon>201601251724541_InitialMigrations.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201601260100144_InitialCreate.resx">
+      <DependentUpon>201601260100144_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
