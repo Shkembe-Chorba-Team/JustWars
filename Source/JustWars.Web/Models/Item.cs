@@ -20,6 +20,6 @@
 
         public int Charisma { get; set; }
 
-        public virtual ICollection<ApplicationUser> Users { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

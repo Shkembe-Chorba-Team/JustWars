@@ -61,7 +61,7 @@ namespace JustWars.Web.Account
                 color = (Color)choice;
             }
 
-            var user = new ApplicationUser() { UserName = Username.Text, Email = Email.Text, Color = color };
+            var user = new User() { UserName = Username.Text, Email = Email.Text, Color = color };
             IdentityResult result = manager.Create(user, Password.Text);
             if (result.Succeeded)
             {
