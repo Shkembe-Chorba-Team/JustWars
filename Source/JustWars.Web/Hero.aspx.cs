@@ -1,4 +1,5 @@
-﻿using JustWars.Web.Models;
+﻿using JustWars.Web.Controllers;
+using JustWars.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,8 @@ namespace JustWars.Web
 {
     public partial class Hero : System.Web.UI.Page
     {
-        private const int StartingStatPrice = 10;
         private JustWarsDbContext dbcontext;
-        private ApplicationUser user;
+        private User user;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,25 +28,13 @@ namespace JustWars.Web
             this.Agility.Text = user.Agility.ToString();
             this.Stamina.Text = user.Stamina.ToString();
             this.Charisma.Text = user.Charisma.ToString();
+            this.NextStatPrice.Text = GoldController.CalculateNextStatLevelPrice(this.user).ToString();
             this.Gold.Text = user.Gold.ToString();
-        }
-
-        private int CalculateNextStatLevelPrice(ApplicationUser user)
-        {
-            var sum = (user.Agility + user.Charisma + user.Defence + user.Stamina + user.Strength);
-            var price = sum * 3;
-
-            if (price < StartingStatPrice)
-            {
-                price = StartingStatPrice;
-            }
-
-            return price;
         }
 
         public void UpdateStat(object sender, CommandEventArgs e)
         {
-            var statPrice = this.CalculateNextStatLevelPrice(this.user);
+            var statPrice = GoldController.CalculateNextStatLevelPrice(this.user);
 
             if (statPrice <= this.user.Gold)
             {

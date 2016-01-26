@@ -18,5 +18,18 @@
             int gold = modifier / wins;
             return (uint)gold;
         }
+
+        public static int CalculateNextStatLevelPrice(User user)
+        {
+            var sum = (user.Agility + user.Charisma + user.Defence + user.Stamina + user.Strength);
+            var price = sum * 3;
+
+            if (price < GoldConstants.StartingStatPrice)
+            {
+                price = GoldConstants.StartingStatPrice;
+            }
+
+            return price;
+        }
     }
 }
