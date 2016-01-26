@@ -182,7 +182,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="fonts\Obelix\obelixpro-cyr-webfont.eot" />
+    <Content Include="fonts\Obelix\obelixpro-cyr-webfont.ttf" />
+    <Content Include="fonts\Obelix\obelixpro-cyr-webfont.woff" />
+    <Content Include="fonts\Obelix\obelixpro-cyr-webfont.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="fonts\Obelix\obelixpro-cyr-webfont.svg" />
+    <Content Include="fonts\Obelix\stylesheet.css" />
+    <Content Include="Hero.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -350,9 +357,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201601251724541_InitialMigrations.cs" />
-    <Compile Include="Migrations\201601251724541_InitialMigrations.Designer.cs">
-      <DependentUpon>201601251724541_InitialMigrations.cs</DependentUpon>
+    <Compile Include="Hero.aspx.cs">
+      <DependentUpon>Hero.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hero.aspx.designer.cs">
+      <DependentUpon>Hero.aspx</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedDb.cs" />
@@ -389,11 +399,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201601251724541_InitialMigrations.resx">
-      <DependentUpon>201601251724541_InitialMigrations.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
