@@ -9,7 +9,7 @@
     {
         public static Random Rand = new Random();
 
-        public List<ApplicationUser> Users;
+        public List<User> Users;
 
         public List<Item> Items;
 
@@ -17,11 +17,11 @@
 
         public SeedData()
         {
-            this.Users = new List<ApplicationUser>();
+            this.Users = new List<User>();
             var passwordHash = new PasswordHasher();
-            Users.Add(new ApplicationUser() { UserName = "dtraykov", Email = "dtraykov@telerik.com", PasswordHash = passwordHash.HashPassword("Ju$tpa$$1"), Color = Color.Green, SecurityStamp = Guid.NewGuid().ToString() });
-            Users.Add(new ApplicationUser() { UserName = "mr.krustev", Email = "mr.krustev@telerik.com", PasswordHash = passwordHash.HashPassword("Ju$tpa$$1"), Color = Color.Blue, SecurityStamp = Guid.NewGuid().ToString() });
-            Users.Add(new ApplicationUser() { UserName = "emilnik", Email = "emilnik@telerik.com", PasswordHash = passwordHash.HashPassword("Ju$tpa$$1"), Color = Color.Red, SecurityStamp = Guid.NewGuid().ToString() });
+            Users.Add(new User() { UserName = "dtraykov", Email = "dtraykov@telerik.com", PasswordHash = passwordHash.HashPassword("Ju$tpa$$1"), Color = Color.Green, SecurityStamp = Guid.NewGuid().ToString() });
+            Users.Add(new User() { UserName = "mr.krustev", Email = "mr.krustev@telerik.com", PasswordHash = passwordHash.HashPassword("Ju$tpa$$1"), Color = Color.Blue, SecurityStamp = Guid.NewGuid().ToString() });
+            Users.Add(new User() { UserName = "emilnik", Email = "emilnik@telerik.com", PasswordHash = passwordHash.HashPassword("Ju$tpa$$1"), Color = Color.Red, SecurityStamp = Guid.NewGuid().ToString() });
 
             this.Items = new List<Item>();
             Items.Add(new Item()

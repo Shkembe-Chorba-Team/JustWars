@@ -6,7 +6,7 @@ using JustWars.Web.Migrations;
 
 namespace JustWars.Web.Models
 {
-    public class JustWarsDbContext : IdentityDbContext<ApplicationUser>
+    public class JustWarsDbContext : IdentityDbContext<User>
     {
         public JustWarsDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
