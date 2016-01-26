@@ -2,17 +2,17 @@
 {
     public class BattleReturnModel
     {
-        public int WinnerId { get; set; }
+        public string WinnerId { get; set; }
         
         public User Winner { get; set; }
 
-        public int LooserId { get; set; }
+        public string LoserId { get; set; }
 
-        public User Looser { get; set; }
+        public User Loser { get; set; }
 
         public int WinnerScore { get; set; }
 
-        public int LooserScore { get; set; }
+        public int LoserScore { get; set; }
 
         public int WinnersGold { get; set; }
     }

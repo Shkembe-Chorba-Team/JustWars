@@ -33,10 +33,10 @@
                 battle.Status = BattleStatus.WonByFirstPlayer;
                 battleReturn.Winner = battle.FirstPlayer;
                 battleReturn.WinnerId = battle.FirstPlayerId;
-                battleReturn.Looser = battle.SecondPlayer;
-                battleReturn.LooserId = battle.SecondPlayerId;
+                battleReturn.Loser = battle.SecondPlayer;
+                battleReturn.LoserId = battle.SecondPlayerId;
                 battleReturn.WinnerScore = firstPlayerWinCount;
-                battleReturn.LooserScore = secondPlayerWinCount;
+                battleReturn.LoserScore = secondPlayerWinCount;
                 return battleReturn;
             }
 
@@ -44,10 +44,10 @@
             battle.Status = BattleStatus.WonBySecondPlayer;
             battleReturn.Winner = battle.SecondPlayer;
             battleReturn.WinnerId = battle.SecondPlayerId;
-            battleReturn.Looser = battle.FirstPlayer;
-            battleReturn.LooserId = battle.FirstPlayerId;
+            battleReturn.Loser = battle.FirstPlayer;
+            battleReturn.LoserId = battle.FirstPlayerId;
             battleReturn.WinnerScore = secondPlayerWinCount;
-            battleReturn.LooserScore = firstPlayerWinCount;
+            battleReturn.LoserScore = firstPlayerWinCount;
             return battleReturn;
         }
 

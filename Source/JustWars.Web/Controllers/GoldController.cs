@@ -9,7 +9,16 @@
         public static int CalculateGoldToAdd(User user, int wins)
         {
             int modifier = RandomGenerator.GenerateRandomNumber(GoldConstants.MinGold, GoldConstants.MaxGold);
-            int gold = modifier / wins;
+            int gold = 0;
+            if (wins != 0)
+            {
+                gold = modifier / wins;
+            }
+            else
+            {
+                gold = modifier;
+            }
+
             return gold;
         }
 

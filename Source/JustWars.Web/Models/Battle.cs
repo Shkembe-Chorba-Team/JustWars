@@ -4,11 +4,11 @@
     {
         public int Id { get; set; }
 
-        public int FirstPlayerId { get; set; }
+        public string FirstPlayerId { get; set; }
 
         public User FirstPlayer { get; set; }
 
-        public int SecondPlayerId { get; set; }
+        public string SecondPlayerId { get; set; }
 
         public User SecondPlayer { get; set; }
 
