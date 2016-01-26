@@ -107,3 +107,9 @@ input[type="select"] {
 .panel-info > .panel-heading {
     background-color: #858b8b;
 }
+
+.text-error {
+    background-color: rgb(193, 7, 7);
+    color: white;
+    padding: 5px;
+}

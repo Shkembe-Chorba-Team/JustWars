@@ -9,12 +9,19 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
 using JustWars.Web.Models;
+using System.Text.RegularExpressions;
 
 namespace JustWars.Web.Account
 {
     public partial class Manage : System.Web.UI.Page
     {
         protected string SuccessMessage
+        {
+            get;
+            private set;
+        }
+
+        protected string ErrorMessage
         {
             get;
             private set;
@@ -36,17 +43,7 @@ namespace JustWars.Web.Account
         protected void Page_Load()
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-
-            HasPhoneNumber = String.IsNullOrEmpty(manager.GetPhoneNumber(User.Identity.GetUserId()));
-
-            // Enable this after setting up two-factor authentientication
-            //PhoneNumber.Text = manager.GetPhoneNumber(User.Identity.GetUserId()) ?? String.Empty;
-
-            TwoFactorEnabled = manager.GetTwoFactorEnabled(User.Identity.GetUserId());
-
-            LoginsCount = manager.GetLogins(User.Identity.GetUserId()).Count;
-
-            var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+            var user = manager.FindById(User.Identity.GetUserId());
 
             if (!IsPostBack)
             {
@@ -57,7 +54,6 @@ namespace JustWars.Web.Account
                 }
                 else
                 {
-                    CreatePassword.Visible = true;
                     ChangePassword.Visible = false;
                 }
 
@@ -69,17 +65,28 @@ namespace JustWars.Web.Account
                     Form.Action = ResolveUrl("~/Account/Manage");
 
                     SuccessMessage =
-                        message == "ChangePwdSuccess" ? "Your password has been changed."
-                        : message == "SetPwdSuccess" ? "Your password has been set."
-                        : message == "RemoveLoginSuccess" ? "The account was removed."
-                        : message == "AddPhoneNumberSuccess" ? "Phone number has been added"
-                        : message == "RemovePhoneNumberSuccess" ? "Phone number was removed"
+                        message == "ProfileChangesSucceed" ? "Profile settings have been updated succesfully."
+                        : message == "SetPwdSuccess" ? "Password was set successfully."
+                        : message == "ChangePwdSuccess" ? "Password was changed succesfully."
+                        : String.Empty;
+                    ErrorMessage =
+                        message == "InvalidEmail" ? "Email is invalid."
                         : String.Empty;
                     successMessage.Visible = !String.IsNullOrEmpty(SuccessMessage);
+                    errorMessage.Visible = !String.IsNullOrEmpty(ErrorMessage);
                 }
             }
         }
 
+        protected void Page_PreRender()
+        {
+            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var user = manager.FindById(User.Identity.GetUserId());
+
+            this.UserEmail.Text = user.Email;
+            this.UserFirstName.Text = user.FirstName;
+            this.UserLastName.Text = user.LastName;
+        }
 
         private void AddErrors(IdentityResult result)
         {
@@ -89,40 +96,48 @@ namespace JustWars.Web.Account
             }
         }
 
-        // Remove phonenumber from user
-        protected void RemovePhone_Click(object sender, EventArgs e)
+        // Change FirstName from user
+        protected void SaveChanges_Click(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
-            var result = manager.SetPhoneNumber(User.Identity.GetUserId(), null);
-            if (!result.Succeeded)
+            var user = manager.FindById(User.Identity.GetUserId());
+            string pattern = @"^[a-z][a-z|0-9|]*([_][a-z|0-9]+)*([.][a-z|0-9]+([_][a-z|0-9]+)*)?@[a-z][a-z|0-9|]*\.([a-z][a-z|0-9]*(\.[a-z][a-z|0-9]*)?)$";
+            Match match = Regex.Match(this.UserEmail.Text.Trim(), pattern, RegexOptions.IgnoreCase);
+
+            if (!match.Success && user != null)
             {
+                signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
+                Response.Redirect("/Account/Manage?m=InvalidEmail");
                 return;
             }
-            var user = manager.FindById(User.Identity.GetUserId());
+
+            try
+            {
+                using (var db = new JustWarsDbContext())
+                {
+                    var userToUpdate = db.Users.SingleOrDefault(u => u.Id == user.Id);
+                    if (userToUpdate != null)
+                    {
+                        userToUpdate.FirstName = this.UserFirstName.Text;
+                        userToUpdate.LastName = this.UserLastName.Text;
+                        userToUpdate.Email = this.UserEmail.Text;
+                        db.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
             if (user != null)
             {
                 signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
-                Response.Redirect("/Account/Manage?m=RemovePhoneNumberSuccess");
+                Response.Redirect("/Account/Manage?m=ProfileChangesSucceed");
             }
         }
 
-        // DisableTwoFactorAuthentication
-        protected void TwoFactorDisable_Click(object sender, EventArgs e)
-        {
-            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            manager.SetTwoFactorEnabled(User.Identity.GetUserId(), false);
-
-            Response.Redirect("/Account/Manage");
-        }
-
-        //EnableTwoFactorAuthentication 
-        protected void TwoFactorEnable_Click(object sender, EventArgs e)
-        {
-            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            manager.SetTwoFactorEnabled(User.Identity.GetUserId(), true);
-
-            Response.Redirect("/Account/Manage");
-        }
     }
 }
