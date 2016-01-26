@@ -23,6 +23,10 @@
             return Task.FromResult(GenerateUserIdentity(manager));
         }
 
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
         public int Wins { get; set; }
 
         public int Losses { get; set; }
@@ -31,7 +35,7 @@
 
         public virtual ICollection<Item> Items { get; set; }
 
-        public uint Gold { get; set; }
+        public int Gold { get; set; }
 
         public int Strength { get; set; }
 

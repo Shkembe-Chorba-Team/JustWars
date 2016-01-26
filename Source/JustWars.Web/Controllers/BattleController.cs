@@ -24,14 +24,16 @@
 
                 secondPlayerWinCount++;
             }
-
+            
             if (firstPlayerWinCount > secondPlayerWinCount)
             {
                 GoldController.AddGold(battle.FirstPlayer, firstPlayerWinCount);
+                battle.Status = BattleStatus.WonByFirstPlayer;
                 return battle.FirstPlayer;
             }
 
             GoldController.AddGold(battle.SecondPlayer, secondPlayerWinCount);
+            battle.Status = BattleStatus.WonBySecondPlayer;
             return battle.SecondPlayer;
         }
 
