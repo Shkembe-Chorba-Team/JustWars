@@ -74,6 +74,8 @@
                     <asp:Label ID="Charisma" runat="server"></asp:Label>
                 </div>
             </div>
+            <asp:Button ID="FightUserButton" runat="server"
+                        Text="Fight" OnClick="ShowUser" CssClass="btn btn-danger pull-right" />
         </div>
     </div>
 </asp:Content>

@@ -77,12 +77,12 @@
         {
             this.ShowUserField.Visible = true;
             //this.selectedUser = dbcontext.Users.FirstOrDefault(u => u.Id == this.gridViewId.text);
-            this.UserName.InnerText = selectedUser.UserName;
-            this.Strength.Text = selectedUser.Strength.ToString();
-            this.Defence.Text = selectedUser.Defence.ToString();
-            this.Agility.Text = selectedUser.Agility.ToString();
-            this.Stamina.Text = selectedUser.Stamina.ToString();
-            this.Charisma.Text = selectedUser.Charisma.ToString();
+            //this.UserName.InnerText = selectedUser.UserName;
+            //this.Strength.Text = selectedUser.Strength.ToString();
+            //this.Defence.Text = selectedUser.Defence.ToString();
+            //this.Agility.Text = selectedUser.Agility.ToString();
+            //this.Stamina.Text = selectedUser.Stamina.ToString();
+            //this.Charisma.Text = selectedUser.Charisma.ToString();
         }
     }
 }
