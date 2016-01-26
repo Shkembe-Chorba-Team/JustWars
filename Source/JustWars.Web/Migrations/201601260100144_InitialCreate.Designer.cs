@@ -7,13 +7,13 @@ namespace JustWars.Web.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InitialMigrations : IMigrationMetadata
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialMigrations));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201601251724541_InitialMigrations"; }
+            get { return "201601260100144_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

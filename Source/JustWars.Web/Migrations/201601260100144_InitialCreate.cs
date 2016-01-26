@@ -3,7 +3,7 @@ namespace JustWars.Web.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialMigrations : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
