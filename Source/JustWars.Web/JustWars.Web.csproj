@@ -188,7 +188,6 @@
     <Content Include="fonts\Obelix\obelixpro-cyr-webfont.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="fonts\Obelix\obelixpro-cyr-webfont.svg" />
-    <Content Include="fonts\Obelix\stylesheet.css" />
     <Content Include="Hero.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
