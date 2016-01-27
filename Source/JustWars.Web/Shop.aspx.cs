@@ -22,6 +22,10 @@
 
         protected void Page_Load(object sender, EventArgs e)
         {
+        }
+
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
             this.gold.InnerText = user.Gold.ToString();
         }
 
@@ -36,15 +40,21 @@
             var id = int.Parse(e.CommandArgument.ToString());
             this.selectedItem = this.dbcontext.Items.Find(id);
 
-            if (this.user.Gold >= this.selectedItem.Gold)
+            if (this.user.Gold < this.selectedItem.Gold)
             {
-                this.user.Items.Add(this.selectedItem);
-                this.user.Gold -= (int)this.selectedItem.Gold;
-                this.dbcontext.SaveChanges();
+                this.error.Visible = true;
+            }
+            else if (this.user.Items.Contains(this.selectedItem))
+            {
+                this.error.InnerText = "You already have this item!";
+                this.error.Visible = true;
             }
             else
             {
-                this.error.Visible = true;
+                this.error.Visible = false;
+                this.user.Items.Add(this.selectedItem);
+                this.user.Gold -= (int)this.selectedItem.Gold;
+                this.dbcontext.SaveChanges();
             }
         }
     }
