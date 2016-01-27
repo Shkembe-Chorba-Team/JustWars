@@ -9,11 +9,11 @@
         <asp:GridView runat="server" ID="usersGrid"
             AllowPaging="true"
             PageSize="10"
-            ItemType="JustWars.Web.Models.User" DataKeyNames="Id"
+            ItemType="JustWars.Web.Models.User" 
+            DataKeyNames="Id"
             AllowSorting="true"
             AutoGenerateColumns="false"
-            OnPageIndexChanging="UsersGrid_PageIndexChanging"
-            OnSorting="UsersGrid_Sorting"
+            SelectMethod="GridViewUsers_GetData"
             CssClass="col-md-8">
             <Columns>
                 <asp:DynamicField DataField="Id" Visible="false" />

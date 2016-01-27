@@ -13,63 +13,24 @@
     {
         private JustWarsDbContext dbcontext;
         private User user;
-        private User[] users;
         private User oponent;
 
-        protected void Page_Load(object sender, EventArgs e)
+        public Battle()
         {
             this.dbcontext = new JustWarsDbContext();
             this.user = this.dbcontext.Users.FirstOrDefault(u => u.UserName == this.User.Identity.Name);
-            this.users = this.dbcontext.Users.OrderBy(u => -u.Wins).ToArray();
-
-            if (!Page.IsPostBack)
-            {
-                this.usersGrid.DataSource = this.users;
-                this.usersGrid.DataBind();
-
-                Session["UsersGrid"] = users;
-
-                usersGrid.DataSource = Session["UsersGrid"];
-                usersGrid.DataBind();
-            }
         }
 
-        protected void UsersGrid_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
-            this.usersGrid.PageIndex = e.NewPageIndex;
-            this.usersGrid.DataSource = this.users;
-            this.usersGrid.DataBind();
+            
         }
 
-        protected void UsersGrid_Sorting(object sender, GridViewSortEventArgs e)
+        public IQueryable<User> GridViewUsers_GetData()
         {
-            var sortExpression = e.SortExpression + " " + GetSortDirection(e.SortExpression);
-            this.users.OrderBy(sortExpression);
-            usersGrid.DataSource = users;
-            usersGrid.DataBind();
-        }
-
-        private string GetSortDirection(string column)
-        {
-            string sortDirection = "asc";
-            string sortExpression = ViewState["SortExpression"] as string;
-
-            if (sortExpression != null)
-            {
-                if (sortExpression == column)
-                {
-                    string lastDirection = ViewState["SortDirection"] as string;
-                    if ((lastDirection != null) && (lastDirection == "asc"))
-                    {
-                        sortDirection = "desc";
-                    }
-                }
-            }
-
-            ViewState["SortDirection"] = sortDirection;
-            ViewState["SortExpression"] = column;
-
-            return sortDirection;
+            return this.dbcontext.Users
+                .OrderBy(b => b.Wins)
+                .Where(u => u.UserName != this.user.UserName);
         }
         
         protected void ShowUser(object sender, CommandEventArgs e)
