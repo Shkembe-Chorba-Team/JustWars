@@ -1,11 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Shop.aspx.cs" Inherits="JustWars.Web.Shop" %>
+﻿<%@ Page Title="Shop" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Shop.aspx.cs" Inherits="JustWars.Web.Shop" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <h1>Shop</h1>
             <h4>Your gold is  <strong id="gold" runat="server"></strong></h4>
-            <h3 id="error" runat="server" class="text-danger" visible="false">You don't have enough gold!</h3>
+            <h3 id="success" runat="server" class="text-success" visible="false"></h3>
+            <h3 id="error" runat="server" class="text-danger" visible="false"></h3>
             <div class="row">
                 <asp:GridView runat="server" ID="ShopItemsGrid"
                     AllowPaging="true"

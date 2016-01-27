@@ -42,6 +42,7 @@
 
             if (this.user.Gold < this.selectedItem.Gold)
             {
+                this.error.InnerText = "You don't have enough gold!";
                 this.error.Visible = true;
             }
             else if (this.user.Items.Contains(this.selectedItem))
@@ -52,6 +53,8 @@
             else
             {
                 this.error.Visible = false;
+                this.success.Visible = true;
+                this.success.InnerText = "You successfully bought " + selectedItem.Name;
                 this.user.Items.Add(this.selectedItem);
                 this.user.Gold -= (int)this.selectedItem.Gold;
                 this.dbcontext.SaveChanges();
