@@ -18,7 +18,7 @@
             };
 
             var attack = BattleController.CalculateUserAttack(user);
-            Assert.AreEqual(50, attack);
+            Assert.AreEqual(25, attack);
         }
 
         [TestMethod]
@@ -31,7 +31,7 @@
             };
 
             var defence = BattleController.CalculateUserDefence(user);
-            Assert.AreEqual(52, defence);
+            Assert.AreEqual(27, defence);
         }
 
         [TestMethod]
