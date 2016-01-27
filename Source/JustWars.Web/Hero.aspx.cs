@@ -61,6 +61,10 @@ namespace JustWars.Web
 
                 this.dbcontext.SaveChanges();
             }
+            else
+            {
+                this.error.Visible = true;
+            }
         }
     }
 }

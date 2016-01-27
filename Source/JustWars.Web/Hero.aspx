@@ -2,6 +2,7 @@
 
 <asp:Content ID="HeroContent" ContentPlaceHolderID="MainContent" runat="server">
     <h1 id="UserName" runat="server"></h1>
+    <h3 id="error" runat="server" visible="false" class="text-danger">You don't have enough gold!</h3>
 
     <div class="container">
         <div class="row">
