@@ -8,7 +8,7 @@
 
         public string Name { get; set; }
 
-        public uint Gold { get; set; }
+        public int Gold { get; set; }
 
         public int Strength { get; set; }
 

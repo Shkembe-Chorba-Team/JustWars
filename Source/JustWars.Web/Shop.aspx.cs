@@ -22,14 +22,16 @@
             this.items = this.dbcontext.Items.ToArray();
             this.gold.InnerText = user.Gold.ToString();
 
-            this.ShopItemsGrid.DataSource = this.items;
-            this.ShopItemsGrid.DataBind();
+            if (!Page.IsPostBack)
+            {
+                this.ShopItemsGrid.DataSource = this.items;
+                this.ShopItemsGrid.DataBind();
 
-            Session["ItemsGrid"] = items;
+                Session["ItemsGrid"] = items;
 
-            ShopItemsGrid.DataSource = Session["ItemsGrid"];
-            ShopItemsGrid.DataBind();
-            return;
+                ShopItemsGrid.DataSource = Session["ItemsGrid"];
+                ShopItemsGrid.DataBind();
+            }
         }
 
         protected void ShopItemsGrid_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -72,7 +74,7 @@
 
         protected void BuyItem(object sender, CommandEventArgs e)
         {
-            var id = e.CommandArgument.ToString();
+            var id = int.Parse(e.CommandArgument.ToString());
             this.selectedItem = this.dbcontext.Items.Find(id);
 
             if (this.user.Gold >= this.selectedItem.Gold)
