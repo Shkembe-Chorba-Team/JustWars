@@ -14,7 +14,7 @@
             var firstPlayerWinCount = 0;
             var secondPlayerWinCount = 0;
 
-            for (int i = 0; i < battle.NumberOfRounds; i++)
+            for (int i = 0; i < BattleConstants.NumberOfRounds; i++)
             {
                 var firstPlayerDamage = CalculateUserDamage(battle.FirstPlayer, battle.SecondPlayer);
                 var secondPlayerDamage = CalculateUserDamage(battle.SecondPlayer, battle.FirstPlayer);
