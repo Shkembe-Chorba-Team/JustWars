@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using System.Linq.Dynamic;
     using System.Web.UI;
     using System.Web.UI.WebControls;
 
@@ -40,10 +41,10 @@
 
         protected void ShopItemsGrid_Sorting(object sender, GridViewSortEventArgs e)
         {
-            //this.users.Sort = e.SortExpression + " " + GetSortDirection(e.SortExpression);
-            //dt.DefaultView.Sort = e.SortExpression + " " + GetSortDirection(e.SortExpression);
-            //usersGrid.DataSource = Session["UsersGrid"];
-            //usersGrid.DataBind();
+            var sortExpression = e.SortExpression + " " + GetSortDirection(e.SortExpression);
+            this.items.OrderBy(sortExpression);
+            ShopItemsGrid.DataSource = Session["ItemsGrid"];
+            ShopItemsGrid.DataBind();
         }
 
         private string GetSortDirection(string column)

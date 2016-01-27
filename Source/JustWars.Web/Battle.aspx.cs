@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using System.Linq.Dynamic;
     using System.Web.UI;
     using System.Web.UI.WebControls;
 
@@ -19,7 +20,7 @@
         {
             this.dbcontext = new JustWarsDbContext();
             this.user = this.dbcontext.Users.FirstOrDefault(u => u.UserName == this.User.Identity.Name);
-            this.users = this.dbcontext.Users.ToArray();
+            this.users = this.dbcontext.Users.OrderBy(u => -u.Wins).ToArray();
 
             if (!Page.IsPostBack)
             {
@@ -42,15 +43,15 @@
 
         protected void UsersGrid_Sorting(object sender, GridViewSortEventArgs e)
         {
-            //this.users.Sort = e.SortExpression + " " + GetSortDirection(e.SortExpression);
-            //dt.DefaultView.Sort = e.SortExpression + " " + GetSortDirection(e.SortExpression);
-            //usersGrid.DataSource = Session["UsersGrid"];
-            //usersGrid.DataBind();
+            var sortExpression = e.SortExpression + " " + GetSortDirection(e.SortExpression);
+            this.users.OrderBy(sortExpression);
+            usersGrid.DataSource = users;
+            usersGrid.DataBind();
         }
 
         private string GetSortDirection(string column)
         {
-            string sortDirection = "ASC";
+            string sortDirection = "asc";
             string sortExpression = ViewState["SortExpression"] as string;
 
             if (sortExpression != null)
@@ -58,9 +59,9 @@
                 if (sortExpression == column)
                 {
                     string lastDirection = ViewState["SortDirection"] as string;
-                    if ((lastDirection != null) && (lastDirection == "ASC"))
+                    if ((lastDirection != null) && (lastDirection == "asc"))
                     {
-                        sortDirection = "DESC";
+                        sortDirection = "desc";
                     }
                 }
             }
