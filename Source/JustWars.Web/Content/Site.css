@@ -85,6 +85,11 @@ table th {
     font-family: obelix !important;
 }
 
+.navbar li a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
 .nav-icon {
     display: block;
     font-size: 30px;
