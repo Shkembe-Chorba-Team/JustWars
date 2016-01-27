@@ -51,7 +51,7 @@
                             <LoggedInTemplate>
                                 <li><a runat="server" href="~/Hero"><span class="glyphicon glyphicon-user nav-icon"></span>Hero</a></li>
                                 <li><a runat="server" href="~/Battle"><span class="glyphicon glyphicon-tint nav-icon"></span>Battle</a></li>
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account"><span class="glyphicon glyphicon-pencil nav-icon"></span>Manage</a></li>
+                                <li><a runat="server" href="~/Account/Manage" title="Manage your account"><span class="glyphicon glyphicon-cog nav-icon"></span>Manage</a></li>
                                 <li>
                                     <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="<span class='glyphicon glyphicon-log-out nav-icon'></span>Logout" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                                 </li>
@@ -61,8 +61,9 @@
                                     <ContentTemplate>
                                         <li><a runat="server" href="~/Hero"><span class="glyphicon glyphicon-user nav-icon"></span>Hero</a></li>
                                         <li><a runat="server" href="~/Battle"><span class="glyphicon glyphicon-tint nav-icon"></span>Battle</a></li>
-                                        <li><a runat="server" href="~/Account/Manage" title="Manage your account"><span class="glyphicon glyphicon-pencil nav-icon"></span>Manage</a></li>
+                                        <li><a runat="server" href="~/Account/Manage" title="Manage your account"><span class="glyphicon glyphicon-cog nav-icon"></span>Manage</a></li>
                                         <li><a runat="server" href="~/Admin/Users" title="Manage users"><span class="glyphicon glyphicon-list nav-icon"></span>Users</a></li>
+                                        <li><a runat="server" href="~/Admin/Items" title="Manage items"><span class="glyphicon glyphicon-th nav-icon"></span>Items</a></li>
                                         <li>
                                             <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="<span class='glyphicon glyphicon-log-out nav-icon'></span>Logout" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                                         </li>
