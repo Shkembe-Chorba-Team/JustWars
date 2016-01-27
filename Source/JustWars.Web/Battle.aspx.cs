@@ -91,7 +91,15 @@
 
         protected void FightUser(object sender, EventArgs e)
         {
+            this.attackSelf.Visible = false;
             var id = this.Id.Text;
+
+            if (id == this.user.Id)
+            {
+                this.attackSelf.Visible = true;
+                return;
+            }
+
             this.oponent = this.dbcontext.Users.Find(id);
             if (oponent != null)
             {
@@ -107,10 +115,17 @@
                 if (battleResult.Winner.Id == this.user.Id)
                 {
                     this.user.Gold += battleResult.WinnersGold;
+                    this.gold.InnerHtml = battleResult.WinnersGold.ToString();
+                    this.winMessage.Visible = true;
+                    this.user.Wins++;
+                    this.oponent.Losses++;
                 }
                 else
                 {
                     this.oponent.Gold += battleResult.WinnersGold;
+                    this.loseMessage.Visible = true;
+                    this.oponent.Wins++;
+                    this.user.Losses++;
                 }
 
                 this.dbcontext.Battles.Add(battle);

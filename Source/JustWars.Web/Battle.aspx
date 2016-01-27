@@ -2,6 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Battle</h1>
+    <h3 id="winMessage" runat="server" class="text-success" visible="false">You win! You got <strong id="gold" runat="server"></strong> gold!</h3>
+    <h3 id="loseMessage" runat="server" class="text-danger" visible="false">You lose!</h3>
+    <h3 id="attackSelf" runat="server" class="text-danger" visible="false">You can't attack yourself!</h3>
     <div class="row">
         <asp:GridView runat="server" ID="usersGrid"
             AllowPaging="true"
