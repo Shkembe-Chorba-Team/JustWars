@@ -45,6 +45,7 @@
                         <li><a runat="server" href="~/"><span class="glyphicon glyphicon-home nav-icon"></span>Home</a></li>
                         <asp:LoginView runat="server" ViewStateMode="Disabled">
                             <AnonymousTemplate>
+                                <li><a runat="server" href="~/Ranking"><span class="glyphicon glyphicon-star nav-icon"></span>Ranking</a></li>
                                 <li><a runat="server" href="~/Account/Register"><span class="glyphicon glyphicon-edit nav-icon"></span>Register</a></li>
                                 <li><a runat="server" href="~/Account/Login"><span class="glyphicon glyphicon-log-in nav-icon"></span>Log in</a></li>
                             </AnonymousTemplate>
