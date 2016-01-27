@@ -13,13 +13,13 @@ namespace JustWars.Web {
     public partial class _Default {
         
         /// <summary>
-        /// UsersNumber control.
+        /// ItemsNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell UsersNumber;
+        protected global::System.Web.UI.WebControls.Label ItemsNumber;
         
         /// <summary>
         /// BattlesNumber control.
@@ -28,6 +28,15 @@ namespace JustWars.Web {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell BattlesNumber;
+        protected global::System.Web.UI.WebControls.Label BattlesNumber;
+        
+        /// <summary>
+        /// UsersNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label UsersNumber;
     }
 }

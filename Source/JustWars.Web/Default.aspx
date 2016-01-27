@@ -6,21 +6,32 @@
         <h1>JustWars</h1>
         <p class="lead"><em>May the <strong>--force</strong> be with you!</em></p>
     </div>
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h2 class="panel-title white-text centered">How many?</h2>
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <div>
+                <strong>Items</strong>
+            </div>
+            <div>
+                <asp:Label ID="ItemsNumber" runat="server"></asp:Label>
+            </div>
         </div>
-        <div class="panel-body">
-            <table class="table table-bordered">
-                <tr>
-                    <th class="col-md-6 centered" >Users</th>
-                    <th class="col-md-6 centered">Battles</th>
-                </tr>
-                <tr>
-                    <td id="UsersNumber" runat="server" class="col-md-6 centered"></td>
-                    <td id="BattlesNumber" runat="server" class="col-md-6 centered"></td>
-                </tr>
-            </table>
+
+        <div class="col-md-4 text-center">
+            <div>
+                <strong>Battles</strong>
+            </div>
+            <div>
+                <asp:Label ID="BattlesNumber" runat="server"></asp:Label>
+            </div>
+        </div>
+
+        <div class="col-md-4 text-center">
+            <div>
+                <strong>Users</strong>
+            </div>
+            <div>
+                <asp:Label ID="UsersNumber" runat="server"></asp:Label>
+            </div>
         </div>
     </div>
 </asp:Content>
