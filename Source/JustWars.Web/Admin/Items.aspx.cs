@@ -34,7 +34,7 @@ namespace JustWars.Web.Admin
         }
 
         // The id parameter name should match the DataKeyNames value set on the control
-        public void GridViewItems_UpdateItem(string id)
+        public void GridViewItems_UpdateItem(int id)
         {
             var item = this.dbContext.Items.Find(id);
             if (item == null)
@@ -51,7 +51,7 @@ namespace JustWars.Web.Admin
         }
 
         // The id parameter name should match the DataKeyNames value set on the control
-        public void GridViewItems_DeleteItem(string id)
+        public void GridViewItems_DeleteItem(int id)
         {
             var item = this.dbContext.Items.Find(id);
             if (item == null)
