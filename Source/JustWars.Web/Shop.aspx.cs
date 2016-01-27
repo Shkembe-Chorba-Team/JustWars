@@ -12,64 +12,23 @@
     {
         private JustWarsDbContext dbcontext;
         private User user;
-        private Item[] items;
         private Item selectedItem;
 
-        protected void Page_Load(object sender, EventArgs e)
+        public Shop()
         {
             this.dbcontext = new JustWarsDbContext();
             this.user = this.dbcontext.Users.FirstOrDefault(u => u.UserName == this.User.Identity.Name);
-            this.items = this.dbcontext.Items.ToArray();
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
             this.gold.InnerText = user.Gold.ToString();
-
-            if (!Page.IsPostBack)
-            {
-                this.ShopItemsGrid.DataSource = this.items;
-                this.ShopItemsGrid.DataBind();
-
-                Session["ItemsGrid"] = items;
-
-                ShopItemsGrid.DataSource = Session["ItemsGrid"];
-                ShopItemsGrid.DataBind();
-            }
         }
 
-        protected void ShopItemsGrid_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        public IQueryable<Item> GridViewItems_GetData()
         {
-            this.ShopItemsGrid.PageIndex = e.NewPageIndex;
-            this.ShopItemsGrid.DataSource = this.items;
-            this.ShopItemsGrid.DataBind();
-        }
-
-        protected void ShopItemsGrid_Sorting(object sender, GridViewSortEventArgs e)
-        {
-            var sortExpression = e.SortExpression + " " + GetSortDirection(e.SortExpression);
-            this.items.OrderBy(sortExpression);
-            ShopItemsGrid.DataSource = Session["ItemsGrid"];
-            ShopItemsGrid.DataBind();
-        }
-
-        private string GetSortDirection(string column)
-        {
-            string sortDirection = "ASC";
-            string sortExpression = ViewState["SortExpression"] as string;
-
-            if (sortExpression != null)
-            {
-                if (sortExpression == column)
-                {
-                    string lastDirection = ViewState["SortDirection"] as string;
-                    if ((lastDirection != null) && (lastDirection == "ASC"))
-                    {
-                        sortDirection = "DESC";
-                    }
-                }
-            }
-
-            ViewState["SortDirection"] = sortDirection;
-            ViewState["SortExpression"] = column;
-
-            return sortDirection;
+            return this.dbcontext.Items
+                        .OrderBy(b => b.Gold);
         }
 
         protected void BuyItem(object sender, CommandEventArgs e)

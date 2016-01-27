@@ -3,16 +3,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Shop</h1>
     <h4>Your gold is  <strong id="gold" runat="server"></strong></h4>
-    <h4 id="error" runat="server" visible="false">You don't have enough gold!</h4>
+    <div id="error" runat="server" class="" visible="false">You don't have enough gold!</div>
     <div class="row">
         <asp:GridView runat="server" ID="ShopItemsGrid"
             AllowPaging="true"
             PageSize="10"
-            ItemType="JustWars.Web.Models.Item" DataKeyNames="Id"
+            ItemType="JustWars.Web.Models.Item" 
+            DataKeyNames="Id"
             AllowSorting="true"
             AutoGenerateColumns="false"
-            OnPageIndexChanging="ShopItemsGrid_PageIndexChanging"
-            OnSorting="ShopItemsGrid_Sorting"
+            SelectMethod="GridViewItems_GetData"
             CssClass="col-md-12">
             <Columns>
                 <asp:DynamicField DataField="Name" />
