@@ -51,7 +51,8 @@
                             <LoggedInTemplate>
                                 <li><a runat="server" href="~/Hero"><span class="glyphicon glyphicon-user nav-icon"></span>Hero</a></li>
                                 <li><a runat="server" href="~/Battle"><span class="glyphicon glyphicon-tint nav-icon"></span>Battle</a></li>
-                                <li><a runat="server" href="~/Shop"><span class="glyphicon glyphicon-tags nav-icon"></span>Shop</a></li>
+                                <li><a runat="server" href="~/Shop"><span class="glyphicon glyphicon-shopping-cart nav-icon"></span>Shop</a></li>
+                                <li><a runat="server" href="~/Ranking"><span class="glyphicon glyphicon-star nav-icon"></span>Ranking</a></li>
                                 <li><a runat="server" href="~/Account/Manage" title="Manage your account"><span class="glyphicon glyphicon-pencil nav-icon"></span>Manage</a></li>
                                 <li>
                                     <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="<span class='glyphicon glyphicon-log-out nav-icon'></span>Logout" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
@@ -63,6 +64,7 @@
                                         <li><a runat="server" href="~/Hero"><span class="glyphicon glyphicon-user nav-icon"></span>Hero</a></li>
                                         <li><a runat="server" href="~/Battle"><span class="glyphicon glyphicon-tint nav-icon"></span>Battle</a></li>
                                         <li><a runat="server" href="~/Shop"><span class="glyphicon glyphicon-shopping-cart nav-icon"></span>Shop</a></li>
+                                        <li><a runat="server" href="~/Ranking"><span class="glyphicon glyphicon-star nav-icon"></span>Ranking</a></li>
                                         <li><a runat="server" href="~/Account/Manage" title="Manage your account"><span class="glyphicon glyphicon-pencil nav-icon"></span>Manage</a></li>
                                         <li><a runat="server" href="~/Admin/Users" title="Manage users"><span class="glyphicon glyphicon-list nav-icon"></span>Users</a></li>
                                         <li><a runat="server" href="~/Admin/Items" title="Manage items"><span class="glyphicon glyphicon-th nav-icon"></span>Items</a></li>
@@ -77,6 +79,7 @@
                 </div>
             </div>
         </div>
+
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>

@@ -225,6 +225,7 @@
     <Content Include="fonts\Manatee\jandamanateesolid-webfont.svg" />
     <Content Include="fonts\Obelix\obelixpro-cyr-webfont.svg" />
     <Content Include="Hero.aspx" />
+    <Content Include="Ranking.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -595,6 +596,13 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UsersItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ranking.aspx.cs">
+      <DependentUpon>Ranking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ranking.aspx.designer.cs">
+      <DependentUpon>Ranking.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Shop.aspx.cs">
       <DependentUpon>Shop.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

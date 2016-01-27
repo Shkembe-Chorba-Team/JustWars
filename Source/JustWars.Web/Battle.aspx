@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Battle.aspx.cs" Inherits="JustWars.Web.Battle" %>
+﻿<%@ Page Title="Battle" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Battle.aspx.cs" Inherits="JustWars.Web.Battle" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
