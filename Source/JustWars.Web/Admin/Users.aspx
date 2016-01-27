@@ -4,7 +4,7 @@
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <div class="container">
-                <asp:GridView runat="server" ID="GridViewUsers" ItemType="JustWars.Web.Models.User" SelectMethod="GridViewUsers_GetData" UpdateMethod="GridViewUsers_UpdateItem" DeleteMethod="GridViewUsers_DeleteItem" AllowSorting="True" AllowPaging="True" PageSize="5" AutoGenerateColumns="false" DataKeyNames="Id">
+                <asp:GridView runat="server" ID="GridViewUsers" ItemType="JustWars.Web.Models.User" SelectMethod="GridViewUsers_GetData" UpdateMethod="GridViewUsers_UpdateItem" AllowSorting="True" AllowPaging="True" PageSize="5" AutoGenerateColumns="false" DataKeyNames="Id">
                     <Columns>
                         <asp:DynamicField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
                         <asp:DynamicField DataField="Email" HeaderText="Email" SortExpression="Email" />
