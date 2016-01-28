@@ -25,6 +25,11 @@
                         <asp:DynamicField DataField="Agility" />
                         <asp:DynamicField DataField="Charisma" />
                         <asp:DynamicField DataField="Gold" />
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Image runat="server" ImageUrl='<%# string.Format("~/Content/imgs/items/{0}", Item.Picture) %>' />
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:TemplateField ShowHeader="False">
                             <ItemTemplate>
                                 <asp:Button ID="BuyItemButton" runat="server"

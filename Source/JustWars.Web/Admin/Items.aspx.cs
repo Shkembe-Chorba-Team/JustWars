@@ -1,6 +1,7 @@
 ﻿using JustWars.Web.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -122,6 +123,17 @@ namespace JustWars.Web.Admin
                 itemGold = (itemStrength + itemDefense + itemStamina + itemAgility + itemCharisma + 3) * 15;
             }
 
+            string itemPicture;
+            if (FileUploadControl.HasFile)
+            {
+                itemPicture = Path.GetFileName(FileUploadControl.FileName);
+                FileUploadControl.SaveAs(Server.MapPath("~/Content/imgs/items/") + itemPicture);
+            }
+            else
+            {
+                itemPicture = "Default Item.jpg";
+            }
+
             var itemToAdd = new Item()
             {
                 Name = itemName,
@@ -131,6 +143,7 @@ namespace JustWars.Web.Admin
                 Stamina = itemStamina,
                 Agility = itemAgility,
                 Charisma = itemCharisma,
+                Picture = itemPicture
             };
 
             this.dbContext.Items.Add(itemToAdd);

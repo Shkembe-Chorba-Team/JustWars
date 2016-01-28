@@ -181,6 +181,8 @@
     <Content Include="Content\imgs\AdminNinja.png" />
     <Content Include="Content\imgs\BlueNinja.png" />
     <Content Include="Content\imgs\GreenNinja.png" />
+    <Content Include="Content\imgs\items\Default Image.jpg" />
+    <Content Include="Content\imgs\items\huge_item_mjollnir_01.png" />
     <Content Include="Content\imgs\RedNinja.png" />
     <Content Include="Content\imgs\YellowNinja.png" />
     <Content Include="Content\Site.css" />
