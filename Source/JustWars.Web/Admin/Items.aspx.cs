@@ -119,7 +119,7 @@ namespace JustWars.Web.Admin
             var hasSetGold = int.TryParse(this.AddItemGold.Text, out itemGold);
             if (itemGold == 0)
             {
-                itemGold = (itemStrength + itemDefense + itemStamina + itemAgility + itemCharisma + 5) * 55;
+                itemGold = (itemStrength + itemDefense + itemStamina + itemAgility + itemCharisma + 3) * 15;
             }
 
             var itemToAdd = new Item()
