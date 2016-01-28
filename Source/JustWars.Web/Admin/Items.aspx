@@ -12,7 +12,8 @@
                         <asp:DynamicField DataField="Stamina" HeaderText="Stamina" SortExpression="Stamina" />
                         <asp:DynamicField DataField="Agility" HeaderText="Agility" SortExpression="Agility" />
                         <asp:DynamicField DataField="Charisma" HeaderText="Charisma" SortExpression="Charisma" />
-                        <asp:CommandField HeaderText="Actions" ShowEditButton="true" ShowDeleteButton="true" />
+                        <asp:DynamicField DataField="Gold" HeaderText="Gold" SortExpression="Gold" />
+                        <asp:CommandField HeaderText="Actions" ShowEditButton="true" />
                     </Columns>
                 </asp:GridView>
                 <asp:ValidationSummary ShowModelStateErrors="true" runat="server" />
