@@ -12,10 +12,13 @@ namespace JustWars.Web
     public partial class _Default : Page
     {
         private JustWarsDbContext dbcontext;
+        private static DateTime expires;
+        private int[] data;
 
         public _Default()
         {
             this.dbcontext = new JustWarsDbContext();
+            this.data = new int[3] { 0, 0, 0 };
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -24,9 +27,19 @@ namespace JustWars.Web
 
         protected void Page_PreRender(object sener, EventArgs e)
         {
-            this.BattlesNumber.Text = this.dbcontext.Battles.Count().ToString();
-            this.UsersNumber.Text = this.dbcontext.Users.Count().ToString();
-            this.ItemsNumber.Text = this.dbcontext.Items.Count().ToString();
+            if (expires < DateTime.Now)
+            {
+                var battles = this.dbcontext.Battles;
+                data[0] = this.dbcontext.Battles.Count();
+                data[1] = this.dbcontext.Users.Count();
+                data[2] = this.dbcontext.Items.Count();
+                expires = DateTime.Now.AddMinutes(10);
+            }
+
+            this.BattlesNumber.Text = data[0].ToString();
+            this.UsersNumber.Text = data[1].ToString();
+            this.ItemsNumber.Text = data[2].ToString();
+
         }
     }
 }
