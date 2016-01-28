@@ -13,12 +13,11 @@ namespace JustWars.Web
     {
         private JustWarsDbContext dbcontext;
         private static DateTime expires;
-        private int[] data;
+        private static int[] data = new int[3]; 
 
         public _Default()
         {
             this.dbcontext = new JustWarsDbContext();
-            this.data = new int[3] { 0, 0, 0 };
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -39,7 +38,6 @@ namespace JustWars.Web
             this.BattlesNumber.Text = data[0].ToString();
             this.UsersNumber.Text = data[1].ToString();
             this.ItemsNumber.Text = data[2].ToString();
-
         }
     }
 }
