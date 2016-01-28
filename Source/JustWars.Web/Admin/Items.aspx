@@ -16,6 +16,50 @@
                     </Columns>
                 </asp:GridView>
                 <asp:ValidationSummary ShowModelStateErrors="true" runat="server" />
+                <br />
+                <div class="row container">
+                    <fieldset>
+                        <legend>Add new item</legend>
+                        <div class="col-lg-12 centered">
+                            <div class="col-md-2">
+                                Name
+                            <asp:TextBox ID="AddItemName" runat="server" CssClass="item-add-control"></asp:TextBox>
+                            </div>
+                            <div class="col-md-1">
+                                Strength
+                            <asp:TextBox ID="AddItemStrength" runat="server" CssClass="item-add-control"></asp:TextBox>
+                            </div>
+                            <div class="col-md-1">
+                                Defence
+                            <asp:TextBox ID="AddItemDefense" runat="server" CssClass="item-add-control"></asp:TextBox>
+                            </div>
+                            <div class="col-md-1">
+                                Stamina
+                            <asp:TextBox ID="AddItemStamina" runat="server" CssClass="item-add-control"></asp:TextBox>
+                            </div>
+                            <div class="col-md-1">
+                                Agility
+                            <asp:TextBox ID="AddItemAgility" runat="server" CssClass="item-add-control"></asp:TextBox>
+                            </div>
+                            <div class="col-md-1">
+                                Charisma
+                            <asp:TextBox ID="AddItemCharisma" runat="server" CssClass="item-add-control"></asp:TextBox>
+                            </div>
+                            <div class="col-md-2">
+                                Gold Cost
+                            <asp:TextBox ID="AddItemGold" runat="server" CssClass="item-add-control"></asp:TextBox>
+                            </div>
+                            <div class="col-md-1">
+                                Actions
+                                <div>
+                                    <asp:Button ID="AddItemButton" runat="server" Text="Add" CssClass="btn btn-primary" OnClick="AddItemButton_Click"/>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                </fieldset>
+                    <br />
+
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>

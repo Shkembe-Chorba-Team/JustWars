@@ -67,13 +67,76 @@ namespace JustWars.Web.Admin
 
         public void FormViewIsertItem_InsertItem()
         {
-            var item = new Item();
-            TryUpdateModel(item);
+            var itemName = this.AddItemName.Text;
+            // This will either get the value or set it to 0.
+            var itemStrength = 0;
+            var hasSetStrength = int.TryParse(this.AddItemStrength.Text, out itemStrength);
+            var itemDefense = 0;
+            var hasSetDefense = int.TryParse(this.AddItemDefense.Text, out itemDefense);
+            var itemStamina = 0;
+            var hasSetStamina = int.TryParse(this.AddItemStamina.Text, out itemStamina);
+            var itemAgility = 0;
+            var hasSetAgility = int.TryParse(this.AddItemAgility.Text, out itemAgility);
+            var itemCharisma = 0;
+            var hasSetCharisma = int.TryParse(this.AddItemCharisma.Text, out itemCharisma);
+            var itemGold = (itemStrength + itemDefense + itemStamina + itemAgility + itemCharisma + 5) * 55;
+            var hasSetGold = int.TryParse(this.AddItemGold.Text, out itemGold);
+
+            var itemToAdd = new Item()
+            {
+                Name = itemName,
+                Gold = itemGold,
+                Strength = itemStrength,
+                Defence = itemDefense,
+                Stamina = itemStamina,
+                Agility = itemAgility,
+                Charisma = itemCharisma,
+            };
+
+            TryUpdateModel(itemToAdd);
             if (ModelState.IsValid)
             {
-                this.dbContext.Items.Add(item);
+                this.dbContext.Items.Add(itemToAdd);
                 this.dbContext.SaveChanges();
             }
+        }
+
+        protected void AddItemButton_Click(object sender, EventArgs e)
+        {
+            var itemName = this.AddItemName.Text;
+            // This will either get the value or set it to 0.
+            var itemStrength = 0;
+            var hasSetStrength = int.TryParse(this.AddItemStrength.Text, out itemStrength);
+            var itemDefense = 0;
+            var hasSetDefense = int.TryParse(this.AddItemDefense.Text, out itemDefense);
+            var itemStamina = 0;
+            var hasSetStamina = int.TryParse(this.AddItemStamina.Text, out itemStamina);
+            var itemAgility = 0;
+            var hasSetAgility = int.TryParse(this.AddItemAgility.Text, out itemAgility);
+            var itemCharisma = 0;
+            var hasSetCharisma = int.TryParse(this.AddItemCharisma.Text, out itemCharisma);
+            var itemGold = 0;
+            var hasSetGold = int.TryParse(this.AddItemGold.Text, out itemGold);
+            if (itemGold == 0)
+            {
+                itemGold = (itemStrength + itemDefense + itemStamina + itemAgility + itemCharisma + 5) * 55;
+            }
+
+            var itemToAdd = new Item()
+            {
+                Name = itemName,
+                Gold = itemGold,
+                Strength = itemStrength,
+                Defence = itemDefense,
+                Stamina = itemStamina,
+                Agility = itemAgility,
+                Charisma = itemCharisma,
+            };
+
+            this.dbContext.Items.Add(itemToAdd);
+            this.dbContext.SaveChanges();
+
+            Page.Response.Redirect(Page.Request.Url.ToString(), true);
         }
 
         /*
