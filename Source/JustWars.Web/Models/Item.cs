@@ -20,6 +20,8 @@
 
         public int Charisma { get; set; }
 
+        public string Picture { get; set; }
+
         public virtual ICollection<User> Users { get; set; }
     }
 }
